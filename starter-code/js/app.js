@@ -3,13 +3,13 @@
 let names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 
 let allProducts = [];
-let container = document.getElementById('image_container');
+const container = document.getElementById('image_container');
 let viewed = [];
 let labels = [];
-let pics = [document.getElementById('left'),
+const pics = [document.getElementById('left'),
                 document.getElementById('center'), //eslint-disable-line
                 document.getElementById('right')]; //eslint-disable-line
-let list = document.getElementById('productlist');
+const list = document.getElementById('productlist');
 let totalClicks = 0;
 let views = [];
 let votes = [];
@@ -73,7 +73,7 @@ function handleClick(event) {
 function showList() {
   for (let i = 0; i < allProducts.length; i++) {
     let liEl = document.createElement('li');
-    liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
+    liEl.textContent = `${allProducts[i].name} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`;
     list.appendChild(liEl);
   }
 }
@@ -88,7 +88,7 @@ function makeChartData(){
 
 function makeChart(){
   makeChartData();
-  let ctx = document.getElementById('chartypants').getContext('2d');
+  const ctx = document.getElementById('chartypants').getContext('2d');
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -128,7 +128,7 @@ if(localStorage.busmall){
   allProducts = JSON.parse(localStorage.busmall)
 } else {
   console.log('There is no local storage data; initialize app by creating instances');
-  for(var i = 0; i < names.length; i++) {
+  for(let i = 0; i < names.length; i++) {
     new Product(names[i]);
   }
   console.log(allProducts);
