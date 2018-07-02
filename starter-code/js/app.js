@@ -29,7 +29,7 @@ function makeRandom() {
 function displayPics(){
   // roll for three random indexes
   while(viewed.length < 6){
-    var rando = makeRandom();
+    let rando = makeRandom();
     while(!viewed.includes(rando)){
       viewed.push(rando);
     }
@@ -128,7 +128,7 @@ if(localStorage.busmall){
   allProducts = JSON.parse(localStorage.busmall)
 } else {
   console.log('There is no local storage data; initialize app by creating instances');
-  for(var i = 0; i < names.length; i++) {
+  for(let i = 0; i < names.length; i++) {
     new Product(names[i]);
   }
   console.log(allProducts);
